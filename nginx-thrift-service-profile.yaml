@@ -1,0 +1,20 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  creationTimestamp: null
+  name: nginx-thrift.default.svc.cluster.local
+  namespace: default
+spec:
+  routes:
+   - condition:
+      method: GET
+      pathRegex: /wrk2-api/home-timeline/read
+    name: GET /wrk2-api/home-timeline/read
+  - condition:
+      method: POST
+      pathRegex: /wrk2-api/post/compose
+    name: POST /wrk2-api/post/compose
+  - condition:
+      method: GET
+      pathRegex: /wrk2-api/user-timeline/read
+    name: GET /wrk2-api/user-timeline/read

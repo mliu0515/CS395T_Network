@@ -1,0 +1,2 @@
+I chose these numbers based on linkerd_baseline on R = 500
+Why 500? That's the median and I like it.

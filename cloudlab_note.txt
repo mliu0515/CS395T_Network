@@ -1,0 +1,24 @@
+- Run sudo -s to become root user
+- For docker swarm, you first have to run docker swam init
+- apt install python3-pip in order to have aiohttp installed
+- Just do things in VS code it's so much better bro
+
+SSH tunneling to view the HTTP stuff:
+8080: frontend Port
+16686: Jaeger Tracing
+
+Not sure what those are but they are in the spec: 
+
+../wrk2/wrk -D exp -t 1 -c 1 -d 10s -L -s ./wrk2/scripts/social-network/compose-post.lua http://localhost:8080/wrk2-api/post/compose -R 100
+
+../wrk2/wrk -D exp -t 1 -c 1 -d 10s -L -s ./wrk2/scripts/social-network/read-home-timeline.lua http://localhost:8080/wrk2-api/home-timeline/read -R 100
+
+../wrk2/wrk -D exp -t 1 -c 1 -d 10s -L -s ./wrk2/scripts/social-network/read-user-timeline.lua http://localhost:8080/wrk2-api/user-timeline/read -R 100
+
+Installation of Linkerd and envoy: 
+
+- If you're looking to run your application with something like Linkerd or Envoy on CloudLab, you'd likely be operating in a more manual fashion, setting up each instance of your application and its sidecar proxy individually on each node or VM.
+
+Envoy + Linkerd? 
+Prereq: Kubernetes on cloudlab
+
